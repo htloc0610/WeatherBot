@@ -61,6 +61,13 @@
     <div id="weather-result"></div>
 
     <script>
+      function updateTime() {
+        const now = new Date();
+        const options = { month: "short", day: "numeric", weekday: "short" };
+        const formattedDate = now.toLocaleDateString("en-US", options);
+        document.getElementById("time").innerText = formattedDate;
+      }
+      updateTime();
       const form = document.getElementById("weather-form");
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
