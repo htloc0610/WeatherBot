@@ -1,15 +1,11 @@
 const express = require("express");
 const router = express.Router();
 
+const controller = require("../controllers/weather.controller");
+
 // define the home page route
-router.get("/", (req, res) => {
-  res.render("index.html");
-});
+router.get("/", controller.index);
 
-router.post("/api/weather", (req, res) => {
-  console.log(req.params);
-
-  res.json({ message: "Nice" });
-});
+router.get("/api/weather", controller.weather);
 
 module.exports = router;
