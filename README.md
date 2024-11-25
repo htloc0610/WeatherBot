@@ -36,3 +36,6 @@ Bot sử dụng **Weather API** để lấy dữ liệu thời tiết theo thờ
 ### **Các câu hỏi mẫu:**  
 - "Thời tiết tại TP.HCM hôm nay thế nào?"
 - "What is the weather like in New York?"
+---
+### **Liên kết tới trang web:**  
+- https://weather-bot-htloc0610s-projects.vercel.app/
