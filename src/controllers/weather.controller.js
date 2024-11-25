@@ -24,7 +24,7 @@ module.exports.weather = async (req, res) => {
       .json({ error: "City name must not contain numbers" });
   }
 
-  const prompt = `Give me a name and country of it don't give anymore. For example: Ho Chi Minh City, VN. Now give me info about it ${city}. Remember only give it in english format`;
+  const prompt = `Give me a name and country of it don't give anymore. For example: Ho Chi Minh City, VN. Now give me info about it ${city}. Remember only give it in english format and if the information don't talk about any country return null`;
 
   const result = await model.generateContent(prompt);
   const response = await result.response;
