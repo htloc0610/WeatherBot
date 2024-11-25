@@ -32,8 +32,6 @@ module.exports.weather = async (req, res) => {
     .text()
     .trim()
     .replace(/[\r\n]+/g, "");
-
-  console.log(cityGenerativeAI);
   const apiWeather = `https://api.openweathermap.org/data/2.5/weather?q=${cityGenerativeAI}&lang=${LANGUAGE}&APPID=${APPID}`;
   axios
     .get(apiWeather)
@@ -42,12 +40,13 @@ module.exports.weather = async (req, res) => {
       const basicData = {
         location: data.name,
         country: data.sys.country,
-        coordinates: `Lat: ${data.coord.lat}, Lon: ${data.coord.lon}`,
         temperature: data.main.temp,
         weather: data.weather[0].main,
         description: data.weather[0].description,
         windSpeed: data.wind.speed,
         humidity: data.main.humidity,
+        pressure: data.main.pressure,
+        visibility: data.visibility,
         rainLastHour: data.rain?.["1h"] || "No data",
       };
       res.json(basicData);

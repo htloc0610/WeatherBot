@@ -3,14 +3,61 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather Bot</title>
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Weather Me</title>
   </head>
   <body>
-    <h1>Weather Bot</h1>
+    <!-- Header -->
+    <header>
+      <div class="nav-menu">
+        <p class="title">Weather Me</p>
+        <nav class="nav-option">
+          <ul>
+            <li><a href="#">Today</a></li>
+            <li><a href="#">Tommorow</a></li>
+            <li><a href="#">Monthly Forecast</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Body -->
     <form id="weather-form">
-      <input type="text" id="city" placeholder="Enter city name" required />
-      <button type="submit">Get Weather</button>
+      <input
+        type="text"
+        id="city"
+        placeholder="Search location or description about location you want..."
+        required
+        autocomplete="off"
+      />
     </form>
+
+    <div class="display-weather">
+      <p id="location">Hồ Chí Minh City</p>
+      <div id="temperature">
+        <p>27°C</p>
+      </div>
+      <p id="time">Aug23, Tue</p>
+      <div class="parameter">
+        <div class="display-item" id="humidity">
+          <p>Humidity</p>
+          <p id="ingredient">88%</p>
+        </div>
+        <div class="display-item" id="visiblity">
+          <p>Visiblity</p>
+          <p id="ingredient">8 km</p>
+        </div>
+        <div class="display-item" id="air-pressure">
+          <p>Air Pressure</p>
+          <p id="ingredient">1005hPa</p>
+        </div>
+        <div class="display-item" id="wind">
+          <p>Wind</p>
+          <p id="ingredient">2mph</p>
+        </div>
+      </div>
+    </div>
     <div id="weather-result"></div>
 
     <script>
@@ -20,11 +67,30 @@
         const city = document.getElementById("city").value;
         const res = await fetch(`/api/weather?city=${city}`);
         const data = await res.json();
-        document.getElementById("weather-result").innerText = JSON.stringify(
-          data,
-          null,
-          2
-        );
+        document.getElementById("location").innerText = data.location;
+        document.getElementById("temperature").innerHTML = `<p>${(
+          data.temperature - 273.15
+        ).toFixed(2)}°C</p>`;
+        document
+          .getElementById("humidity")
+          .querySelector("#ingredient").innerText = `${data.humidity}%`;
+        document
+          .getElementById("visiblity")
+          .querySelector("#ingredient").innerText = `${
+          data.visibility / 1000
+        } km`;
+        document
+          .getElementById("air-pressure")
+          .querySelector("#ingredient").innerText = `${data.pressure} hPa`;
+        document
+          .getElementById("wind")
+          .querySelector("#ingredient").innerText = `${data.windSpeed} m/s`;
+      });
+
+      document.getElementById("city").addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+          form.dispatchEvent(new Event("submit"));
+        }
       });
     </script>
   </body>

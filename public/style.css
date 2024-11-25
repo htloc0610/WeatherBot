@@ -1,0 +1,121 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0 auto;
+  width: 90%;
+  background-color: #252323;
+  font-size: 1.6rem;
+  font-family: "Sora", sans-serif;
+}
+
+.nav-menu {
+  padding-top: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.title {
+  padding: 10px;
+  margin-left: 50px;
+  color: #fff;
+  font-size: 5rem;
+}
+
+.nav-option {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-option ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.nav-option a {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  font-size: 2.4rem;
+}
+
+#weather-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 80px;
+}
+
+#weather-form input {
+  padding: 10px;
+  font-size: 1.6rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  width: 40%;
+}
+
+.display-weather {
+  font-size: 2rem;
+  color: #fff;
+  margin: 50px auto;
+  width: 50%;
+  border-radius: 15px;
+  padding: 15px;
+  background: linear-gradient(120deg, #b20ddb 27%, #333333 69%);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.display-weather .parameter {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.display-item {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#location {
+  margin-top: 5px;
+}
+
+#temperature {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+}
+
+#temperature p {
+  font-size: 6.2rem;
+}
+
+#time {
+  font-size: 1.6rem;
+  margin-top: 15px;
+}
+
+#ingredient {
+  margin-top: 15px;
+}
+
+#weather-result {
+  color: white;
+}
